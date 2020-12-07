@@ -43,7 +43,7 @@ namespace DemoApi.Controllers
         [HttpGet("GetConfig", Name = "GetConfig")]
         public ActionResult<string> GetDetails()
         {
-            var demostr = Config.GetValue<string>("Sample1");
+            var demostr = Config.GetValue<string>("Sample");
             return demostr;
         }
     }
