@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demoapi
+spec:
+  replicas: 1
+  minReadySeconds: 20
+  selector:
+    matchLabels:
+      app: demoapi
+  template:
+    metadata:
+      labels:
+        app: demoapi
+    spec:
+      containers:
+      - name: demoapi
+        image: prashantsharma18/dockerapi:v5
+        
+        resources:
+          requests:
+            memory: "100Mi"
+            cpu: "20m"
+          limits:
+            memory: "128Mi"
+            cpu: "100m"
+        
+        envFrom:
+          - configMapRef:
+             name: demoapiconfig
